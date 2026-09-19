@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактировать Табулатуру - GuitarTabs</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">GuitarTabs</a>
+            <div id="nav-links" class="nav-links">
+                <!-- Навигация загрузится через JS -->
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="form-container" style="max-width: 800px;">
+            <h1>Редактировать табулатуру</h1>
+            <form id="edit-tab-form">
+                <!-- Метаданные -->
+                <div class="form-group">
+                    <label for="title">Название песни</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="artist">Исполнитель</label>
+                    <input type="text" id="artist" name="artist" required>
+                </div>
+                
+                <!-- Скрытое поле для отправки размерности такта -->
+                <input type="hidden" id="time-signature" name="time-signature" value="4/4">
+
+                <div class="form-group">
+                    <label for="difficulty">Сложность</label>
+                    <select id="difficulty" name="difficulty">
+                        <option value="beginner">Новичок</option>
+                        <option value="intermediate" selected>Средний</option>
+                        <option value="advanced">Продвинутый</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="visibility">Видимость</label>
+                    <select id="visibility" name="visibility">
+                        <option value="public" selected>Публичная (Видна всем)</option>
+                        <option value="private">Личная (Только я)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label_for="access">Доступ</label_for>
+                    <select id="access" name="access" onchange="togglePriceField()">
+                        <option value="free" selected>Бесплатный</option>
+                        <option value="paid">Платный</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="price-group" style="display: none;">
+                    <label for="price">Цена (RUB)</label>
+                    <input type="number" id="price" name="price" min="1" value="100">
+                </div>
+
+                <!-- ВИЗУАЛЬНЫЙ РЕДАКТОР -->
+                <div class="form-group">
+                    <label>Редактор нот</label>
+                    <div class="editor-toolbar">
+                        <span style="align-self: center;">Длительность:</span>
+                        <button type="button" class="dur-btn" data-val="w">Целая (o)</button>
+                        <button type="button" class="dur-btn" data-val="h">Половинная (d)</button>
+                        <button type="button" class="dur-btn active" data-val="q">Четверть (♩)</button>
+                        <button type="button" class="dur-btn" data-val="e">Восьмая (♪)</button>
+                    </div>
+                    <div style="font-size: 0.9em; color: #666;">1. Выберите длительность. 2. Нажмите на струну и введите лад.</div>
+                    
+                    <div id="visual-editor" class="visual-editor"></div>
+                    
+                    <div class="editor-controls">
+                        <button type="button" id="add-measure-btn" class="btn-secondary">+ Добавить такт</button>
+                        <button type="button" id="clear-editor-btn" class="btn-danger">Очистить</button>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary">Сохранить изменения</button>
+            </form>
+            <p id="error-message" class="error-text"></p>
+        </div>
+    </main>
+
+    <script>
+        function togglePriceField() {
+            document.getElementById('price-group').style.display = document.getElementById('access').value === 'paid' ? 'block' : 'none';
+        }
+        document.addEventListener('DOMContentLoaded', togglePriceField);
+    </script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека Табулатур</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">GuitarTabs</a>
+            <!-- Добавляю ID для управления ссылками -->
+            <div id="nav-links" class="nav-links">
+                <a href="/login.html">Войти</a>
+                <a href="/register.html" class="btn-primary">Регистрация</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Последние добавленные</h1>
+        <!-- ПАНЕЛЬ ПОИСКА И ФИЛЬТРАЦИИ -->
+        <div class="search-bar" style="margin-bottom: 20px; display: flex; gap: 10px; background: #fff; padding: 15px; border-radius: 5px; border: 1px solid #ddd;">
+            <input type="text" id="search-input" placeholder="Поиск по названию..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+            
+            <select id="filter-level" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="any">Любая сложность</option>
+                <option value="beginner">Новичок</option>
+                <option value="intermediate">Средний</option>
+                <option value="advanced">Продвинутый</option>
+            </select>
+            
+            <button id="search-btn" class="btn-primary">Найти</button>
+        </div>
+        <!-- Этот контейнер будет заполняться динамически -->
+        <div id="tabs-grid" class="tabs-grid">
+            <p>Загрузка табулатур...</p>
+        </div>
+    </main>
+
+    <footer class="container">
+        <p>&copy; 2025 GuitarTabs. Все права защищены.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
