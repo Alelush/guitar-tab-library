@@ -37,18 +37,22 @@
 - JWT
 - bcryptjs
 ## Структура проекта
+
+```text
 guitar-tab-library/
 │
-├── client/ # Клиентская часть приложения
+├── client/                 # Клиентская часть приложения
 │
-├── server/ # Серверная часть приложения
-│ ├── controllers/ # Логика обработки запросов
-│ ├── middleware/ # Middleware для авторизации
-│ ├── models/ # Модели MongoDB
-│ ├── routes/ # Маршруты API
-│ ├── server.js # Точка запуска сервера
-│ └── package.json
+├── server/                 # Серверная часть приложения
+│   ├── controllers/        # Логика обработки запросов
+│   ├── middleware/         # Middleware для авторизации
+│   ├── models/             # Модели MongoDB
+│   ├── routes/             # Маршруты API
+│   ├── server.js           # Точка запуска сервера
+│   └── package.json
 │
+└── README.md
+```
 └── README.md
 
 
